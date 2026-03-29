@@ -6,7 +6,6 @@ This project focuses on redesigning the user interface of Craigslist to improve 
 The goal of this project is to modernize the interface while preserving the simplicity that makes Craigslist accessible. The redesign emphasizes cleaner layouts, improved navigation, and enhanced search and filtering features to create a smoother and more efficient user experience. By addressing these usability issues, the updated interface aims to reduce confusion and make it easier for users to find and interact with listings.
 
 Repository Structure:
-- GroupName_ProgressReport.pdf → Final progress report in IEEE format
 - images/ → Screenshots of redesigned interface components
 - diagrams/ → Workflow diagram and Gantt chart
 - design/ → Figma design resources and link
