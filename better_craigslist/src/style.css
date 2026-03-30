@@ -4,14 +4,12 @@ body {
     background: #e6e6e6;
 }
 
-/* LAYOUT */
 .layout {
     display: grid;
     grid-template-columns: 150px 1fr 220px;
     height: 100vh;
 }
 
-/* SIDEBAR */
 .sidebar {
     background: #f0f0f0;
     padding: 20px 10px;
@@ -47,7 +45,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* SEARCH */
 .search {
     display: flex;
     align-items: center;
@@ -69,7 +66,6 @@ body {
     width: 100%;
 }
 
-/* LINKS */
 .links {
     margin-top: 15px;
 }
@@ -81,7 +77,7 @@ body {
     cursor: pointer;
 }
 
-/* RIGHT PANEL */
+
 .right {
     background: #f0f0f0;
     padding: 15px;
@@ -104,7 +100,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* LOCATION BOX */
 .location-box {
     border: 1px solid #bbb;
     padding: 15px;
@@ -123,7 +118,7 @@ body {
     font-size: 10px;
 }
 
-/* BUTTON */
+
 button {
     margin-top: 20px;
     width: 100%;
