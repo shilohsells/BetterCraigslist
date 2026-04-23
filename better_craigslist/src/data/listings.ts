@@ -884,7 +884,7 @@ export const listings: Listing[] = [
   image: 'https://i.pinimg.com/1200x/93/bb/f4/93bbf4f713b8f03493ad480eb5abed48.jpg',
   location: 'Remote',
   date: generateDate(0),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'tech',
   keywords: ['web developer', 'developer', 'react', 'node', 'python', 'web applications', 'remote', 'full-time'],
   metadata: { experience: '5 Years' }
@@ -897,7 +897,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/802/400/400',
   location: 'Metro Area',
   date: generateDate(1),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'professional',
   keywords: ['marketing', 'digital marketing', 'seo', 'content strategy', 'engagement', 'professional', 'resume', 'metro area'],
   metadata: { experience: '8 Years' }
@@ -910,7 +910,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/803/400/400',
   location: 'Citywide',
   date: generateDate(2),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'trades',
   keywords: ['electrician', 'licensed', 'journeyman', 'residential', 'commercial', 'insured', 'trades', 'projects'],
   metadata: { experience: '12 Years' }
@@ -923,7 +923,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/804/400/400',
   location: 'Suburbs',
   date: generateDate(3),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'professional',
   keywords: ['teacher', 'certified teacher', 'elementary education', 'tutoring', 'private pod', 'teaching', 'education', 'resume'],
   metadata: { experience: '6 Years' }
@@ -936,7 +936,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/805/400/400',
   location: 'Remote',
   date: generateDate(4),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'creative',
   keywords: ['graphic designer', 'freelance', 'branding', 'logos', 'print materials', 'design', 'creative', 'remote'],
   metadata: { experience: '4 Years' }
@@ -949,7 +949,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/806/400/400',
   location: 'Hybrid',
   date: generateDate(5),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'professional',
   keywords: ['bookkeeper', 'quickbooks', 'small business', 'finances', 'tax season', 'accounting', 'hybrid', 'professional'],
   metadata: { experience: '10 Years' }
@@ -962,7 +962,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/807/400/400',
   location: 'Metro Area',
   date: generateDate(6),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'creative',
   keywords: ['personal chef', 'chef', 'meal prep', 'dinner parties', 'special events', 'culinary', 'food', 'resume'],
   metadata: { experience: '7 Years' }
@@ -975,7 +975,7 @@ export const listings: Listing[] = [
   image: 'https://picsum.photos/seed/808/400/400',
   location: 'All Areas',
   date: generateDate(7),
-  category: 'resumes',
+  category: 'Resumes',
   subcategory: 'trades',
   keywords: ['handyman', 'carpentry', 'plumbing', 'drywall repair', 'home maintenance', 'trades', 'Services', 'all areas'],
   metadata: { experience: '15 Years' }
