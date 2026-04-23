@@ -3,12 +3,14 @@ import { SearchIcon, FilterIcon } from 'lucide-react';
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
+  onSubmit?: () => void;
   onToggleFilter?: () => void;
   showFilter?: boolean;
 }
 export function SearchBar({
   value,
   onChange,
+  onSubmit,
   onToggleFilter,
   showFilter = false
 }: SearchBarProps) {
@@ -20,6 +22,11 @@ export function SearchBar({
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            onSubmit?.();
+          }
+        }}
           placeholder="Search Craigslist..."
           className="flex-1 outline-none bg-transparent text-gray-900 placeholder-gray-400" />
         

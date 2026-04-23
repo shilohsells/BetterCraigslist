@@ -172,7 +172,7 @@ export function LocationWidget() {
                 <h3
                 className="text-2xl font-semibold text-[#7b64b0]"
                 style={{
-                  fontFamily: "'Playfair Display', serif"
+                  fontFamily: "'Raleway', serif"
                 }}>
                 
                   Select Location

@@ -5,9 +5,10 @@ import { XIcon } from 'lucide-react';
 interface HomepageProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;
+  onSearchSubmit: () => void;
 }
 type ModalType = 'help' | 'faq' | 'about' | null;
-export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
+export function Homepage({ searchQuery, onSearchChange, onSearchSubmit }: HomepageProps) {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
   return (
     <div className="flex-1 flex flex-col items-center justify-center px-12 min-h-full">
@@ -48,7 +49,7 @@ export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
         }}
         className="w-full max-w-lg mb-10">
         
-        <SearchBar value={searchQuery} onChange={onSearchChange} />
+        <SearchBar value={searchQuery} onChange={onSearchChange} onSubmit={onSearchSubmit}/>
       </motion.div>
 
       <motion.div
@@ -127,7 +128,7 @@ export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
                 <h3
                 className="text-2xl font-semibold text-[#7b64b0] capitalize"
                 style={{
-                  fontFamily: "'Playfair Display', serif"
+                  fontFamily: "'Raleway', serif"
                 }}>
                 
                   {activeModal === 'faq' ?

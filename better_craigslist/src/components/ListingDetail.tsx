@@ -67,7 +67,7 @@ export function ListingDetail({
             <h2
               className="text-3xl font-bold text-gray-900 leading-tight"
               style={{
-                fontFamily: "'Playfair Display', serif"
+                fontFamily: "'Raleway', serif"
               }}>
               
               {listing.title}
