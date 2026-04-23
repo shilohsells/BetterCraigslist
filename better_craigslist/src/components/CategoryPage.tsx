@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SearchBar } from './SearchBar';
 import { Listing } from '../data/listings';
@@ -31,11 +31,47 @@ export function CategoryPage({
   favorites = [],
   onToggleFavorite
 }: CategoryPageProps) {
-  const filteredItems = items.filter(
-    (item) =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+
+  // Filter and sort logic
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
+  const normalizedCategory = category.toLowerCase().replace(/\s+/g, '-');
+      const priceFilterCategories = ['for-sale', 'housing', 'housings', 'gigs', 'services'];
+      const shouldApplyPriceFilter =
+        priceFilterCategories.includes(normalizedCategory);
+
+  const filteredItems = items
+    .filter((item) => {
+      const matchesSearch =
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const itemPrice = Number(
+        String(item.price || '').replace(/[^0-9.]/g, '')
+      );
+
+      const hasMin = minPrice !== '';
+      const hasMax = maxPrice !== '';
+
+      const matchesPrice =
+        (!hasMin || (!isNaN(itemPrice) && itemPrice >= Number(minPrice))) &&
+        (!hasMax || (!isNaN(itemPrice) && itemPrice <= Number(maxPrice)));
+
+      return matchesSearch && (!shouldApplyPriceFilter || matchesPrice);
+    })
+    .sort((a, b) => {
+      const getDay = (dateStr: string) => {
+        const parts = dateStr.split(' ');
+        return Number(parts[1]) || 0;
+      };
+
+  return sortOrder === 'newest'
+    ? getDay(b.date) - getDay(a.date)
+    : getDay(a.date) - getDay(b.date);
+});
+  
 
   const renderDiscussionList = () =>
   <div className="bg-white rounded-xl shadow-sm border border-gray-300 overflow-hidden">
@@ -227,13 +263,100 @@ export function CategoryPage({
             transition={{
               duration: 0.2
             }}
-            className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-10">
+            className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-[100]">
             
               <h4 className="text-sm font-semibold text-gray-900 mb-3">
                 Filter Options
               </h4>
+
+              {shouldApplyPriceFilter && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Min Price
+                    </label>
+                    <input
+                      type="number"
+                      value={minPrice}
+                      onChange={(e) => setMinPrice(e.target.value)}
+                      placeholder="0"
+                      className="border border-gray-300 rounded-lg px-3 py-2 text-sm w-28"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Max Price
+                    </label>
+                    <input
+                      type="number"
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(e.target.value)}
+                      placeholder="500"
+                      className="border border-gray-300 rounded-lg px-3 py-2 text-sm w-28"
+                    />
+                  </div>
+                </>
+              )}
+
               <p className="text-sm text-gray-500">
-                Filters for {category} coming soon...
+                <div className="flex flex-wrap items-end gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Sort by
+                    </label>
+                    <select
+                      value={sortOrder}
+                      onChange={(e) => setSortOrder(e.target.value as 'newest' | 'oldest')}
+                      className="border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white"
+                    >
+                      <option value="newest">Newest to Oldest</option>
+                      <option value="oldest">Oldest to Newest</option>
+                    </select>
+                  </div>
+
+                  {(category === 'for-sale' || category === 'housing' || category === 'gigs') && (
+                    <>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Min Price
+                        </label>
+                        <input
+                          type="number"
+                          value={minPrice}
+                          onChange={(e) => setMinPrice(e.target.value)}
+                          placeholder="0"
+                          className="border border-gray-300 rounded-lg px-3 py-2 text-sm w-28"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Max Price
+                        </label>
+                        <input
+                          type="number"
+                          value={maxPrice}
+                          onChange={(e) => setMaxPrice(e.target.value)}
+                          placeholder="500"
+                          className="border border-gray-300 rounded-lg px-3 py-2 text-sm w-28"
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  <button
+                    onClick={() => {
+                      setSortOrder('newest');
+                      setMinPrice('');
+                      setMaxPrice('');
+                    }}
+                    className="text-sm text-[#7B64B0] hover:underline"
+                  >
+                    Reset
+                  </button>
+                </div>
+
               </p>
             </motion.div>
           }
@@ -264,3 +387,4 @@ export function CategoryPage({
     </motion.div>);
 
 }
+
