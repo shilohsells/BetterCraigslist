@@ -168,7 +168,7 @@ export function CategoryPage({
             className="cursor-pointer flex flex-col flex-1"
             onClick={() => onItemClick(item)}>
             
-              {item.image && category !== 'resumes' &&
+              {item.image && category !== 'Resumes' &&
             <div className="h-48 overflow-hidden relative">
                   <img
                 src={item.image}
@@ -183,7 +183,7 @@ export function CategoryPage({
                 </div>
             }
 
-              {category === 'resumes' &&
+              {category === 'Resumes' &&
             <div className="h-24 bg-purple-100 flex items-center justify-center">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm border-2 border-purple-200">
                     <UserIcon size={32} className="text-purple-400" />
@@ -196,7 +196,7 @@ export function CategoryPage({
                   {item.title}
                 </h3>
 
-                {(category === 'jobs' || category === 'resumes') &&
+                {(category === 'jobs' || category === 'Resumes') &&
               <div className="flex items-center gap-2 text-xs text-gray-600 mb-3">
                     <BriefcaseIcon size={14} />
                     <span className="truncate">

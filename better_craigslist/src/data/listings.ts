@@ -269,9 +269,9 @@ export const listings: Listing[] = [
   title: 'Auto Detailing',
   description:
     'Full interior and exterior detailing. Mobile service — we come to you.',
-  image: 'https://picsum.photos/seed/209/400/400',
+  image: 'https://inoutcarwash.com/wp-content/uploads/2019/09/auto-detailing-scaled.jpg',
   price: '$150+',
-  location: 'Metro Area',
+  location: 'Oklahoma City',
   date: generateDate(2),
   category: 'Services',
   subcategory: 'automotive',
@@ -282,7 +282,7 @@ export const listings: Listing[] = [
   title: 'Piano Lessons',
   description:
     'Experienced piano teacher for all ages. Classical and contemporary styles.',
-  image: 'https://i.pinimg.com/736x/19/ee/cf/19eecf836b6bba7915a66c85c9baf909.jpg',
+  image: 'https://www.sanantoniomusicschools.com/wp-content/uploads/2020/08/experienced-master-piano-hand.jpg',
   price: '$50/hr',
   location: 'Westside',
   date: generateDate(4),

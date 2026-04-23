@@ -118,7 +118,7 @@ export function FavoritesPage({
                   </div>
             }
 
-                {item.category === 'resumes' &&
+                {item.category === 'Resumes' &&
             <div className="h-24 bg-purple-100 flex items-center justify-center">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm border-2 border-purple-200">
                       <UserIcon size={32} className="text-purple-400" />
@@ -126,7 +126,7 @@ export function FavoritesPage({
                   </div>
             }
 
-                {item.category === 'discussion' &&
+                {item.category === 'Discussion' &&
             <div className="h-24 bg-blue-50 flex items-center justify-center">
                     <MessageSquareIcon size={32} className="text-blue-400" />
                   </div>

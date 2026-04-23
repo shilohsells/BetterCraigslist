@@ -43,7 +43,7 @@ export function ListingDetail({
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-300 overflow-hidden flex flex-col md:flex-row">
         {/* Left Column - Image (if applicable) */}
-        {listing.category !== 'discussion' &&
+        {listing.category !== 'Discussion' &&
         <div className="md:w-1/2 lg:w-3/5 bg-gray-100 border-r border-gray-200">
             {listing.image ?
           <img
@@ -61,7 +61,7 @@ export function ListingDetail({
 
         {/* Right Column - Details */}
         <div
-          className={`p-8 flex flex-col ${listing.category === 'discussion' ? 'w-full' : 'md:w-1/2 lg:w-2/5'}`}>
+          className={`p-8 flex flex-col ${listing.category === 'Discussion' ? 'w-full' : 'md:w-1/2 lg:w-2/5'}`}>
           
           <div className="flex justify-between items-start mb-4">
             <h2
