@@ -10,6 +10,7 @@ import { ListingDetail } from './components/ListingDetail';
 import { CreatePostModal } from './components/CreatePostModal';
 import { FavoritesPage } from './components/FavoritesPage';
 import { listings, Listing } from './data/listings';
+import { SearchBar } from './components/SearchBar';
 export function App() {
   const [currentView, setCurrentView] = useState('home');
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
@@ -42,6 +43,7 @@ export function App() {
     prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
     );
   };
+
   const handleCreatePost = (postData: any) => {
     const newListing: Listing = {
       id: Date.now(),
@@ -54,7 +56,9 @@ export function App() {
       date: new Date().toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric'
-      }),
+    }),
+    keywords: generateKeywords(
+      `${postData.title} ${postData.description}`),
       category: postData.category,
       subcategory: postData.subcategory
     };
@@ -65,13 +69,57 @@ export function App() {
     handleNavigate(postData.category);
     handleSubcategoryClick(postData.subcategory);
   };
+
+  // genrate keywords for search
+  const generateKeywords = (text: string) => {
+  return text
+    .toLowerCase()
+    .split(/\W+/)
+    .filter((word) => word.length > 2);
+};
+
   // Filter items by current category and optionally by subcategory
   const currentItems = allListings.filter((item) => {
-    if (item.category !== currentView) return false;
-    if (activeSubcategory && item.subcategory !== activeSubcategory)
-    return false;
-    return true;
-  });
+    
+  if (currentView !== 'search' && item.category !== currentView) return false;
+  if (activeSubcategory && item.subcategory !== activeSubcategory) return false;
+
+  const words = searchQuery
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  
+  // if there's a search query, filter by it
+  if (words.length === 0) return true;
+
+  const searchableText = [
+    item.title,
+    item.description,
+    item.location,
+    item.category,
+    item.subcategory,
+    ...(item.keywords || [])
+  ]
+    .join(' ')
+    .toLowerCase();
+
+  return words.every((word) => searchableText.includes(word));
+});
+
+/* search function for home search bar */
+const handleHomepageSearchSubmit = () => {
+  const trimmedQuery = searchQuery.trim();
+
+  if (!trimmedQuery) return;
+
+  setSelectedListing(null);
+  setActiveSubcategory(null);
+  setExpandedCategory(null);
+  setCurrentView('search'); 
+  setFilterOpen(false);
+};
+
   return (
     <div className="min-h-screen w-full bg-[#f0ede8] flex overflow-hidden">
       <Sidebar
@@ -103,7 +151,8 @@ export function App() {
             <Homepage
               key="home"
               searchQuery={searchQuery}
-              onSearchChange={setSearchQuery} /> :
+              onSearchChange={setSearchQuery}
+              onSearchSubmit={handleHomepageSearchSubmit}/> :
 
             currentView === 'favorites' ?
             <FavoritesPage
@@ -112,6 +161,61 @@ export function App() {
               allListings={allListings}
               onItemClick={handleItemClick}
               onToggleFavorite={handleToggleFavorite} /> :
+              
+            // search results page w/ search bar at top
+            currentView === 'search' ? (
+              <div className="px-12 py-10">
+                <div className="mb-10">
+                  <SearchBar
+                    value={searchQuery}
+                    onChange={setSearchQuery}
+                    onSubmit={handleHomepageSearchSubmit}
+                    showFilter={false}
+                  />
+                </div>
+
+                <h1
+                  className="text-6xl text-[#7b64b0] font-bold mb-3"
+                  style={{ fontFamily: "'Raleway', serif" }}
+                >
+                  Search Results
+                </h1>
+
+                <p className="text-gray-600 mb-8">
+                  {currentItems.length} result{currentItems.length !== 1 ? 's' : ''} for "{searchQuery}"
+                </p>
+
+                {currentItems.length === 0 ? (
+                  <p className="text-gray-500">No matching posts found.</p>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {currentItems.map((item) => (
+                      <div
+                        key={item.id}
+                        onClick={() => handleItemClick(item)}
+                        className="cursor-pointer"
+                      >
+                        {item.image && (
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full aspect-square object-cover rounded-2xl"
+                          />
+                        )}
+
+                        <h3 className="mt-3 text-lg italic text-[#7b64b0]">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-sm text-gray-500 mt-1">
+                          {item.category} • {item.location}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) :
 
             currentView === 'communities' ?
             <CommunitiesPage

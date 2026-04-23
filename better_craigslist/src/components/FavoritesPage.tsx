@@ -54,7 +54,7 @@ export function FavoritesPage({
         }}
         className="text-6xl italic text-[#7b64b0] mb-10 tracking-wide font-bold"
         style={{
-          fontFamily: "'Playfair Display', serif"
+          fontFamily: "'Raleway', serif"
         }}>
         
         Favorites

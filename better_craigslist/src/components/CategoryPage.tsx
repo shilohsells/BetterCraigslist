@@ -36,6 +36,7 @@ export function CategoryPage({
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     item.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
   const renderDiscussionList = () =>
   <div className="bg-white rounded-xl shadow-sm border border-gray-300 overflow-hidden">
       {filteredItems.map((item, index) => {
@@ -259,7 +260,7 @@ export function CategoryPage({
         {category.replace('-', ' ')}
       </motion.h2>
 
-      {category === 'discussion' ? renderDiscussionList() : renderCardGrid()}
+      {category === 'Discussion' ? renderDiscussionList() : renderCardGrid()}
     </motion.div>);
 
 }

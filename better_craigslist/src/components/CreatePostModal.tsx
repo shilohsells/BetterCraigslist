@@ -94,7 +94,7 @@ export function CreatePostModal({
           <h3
             className="text-2xl font-semibold text-gray-900 mb-2"
             style={{
-              fontFamily: "'Playfair Display', serif"
+              fontFamily: "'Raleway', serif"
             }}>
             
             Post Created!
@@ -412,7 +412,7 @@ export function CreatePostModal({
               <h3
                 className="text-2xl font-semibold text-[#7b64b0]"
                 style={{
-                  fontFamily: "'Playfair Display', serif"
+                  fontFamily: "'Raleway', serif"
                 }}>
                 
                 Create a Post
