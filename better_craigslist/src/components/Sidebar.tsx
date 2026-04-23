@@ -18,14 +18,14 @@ export function Sidebar({
   onSubcategoryClick
 }: SidebarProps) {
   const mainLinks = [
-  'communities',
-  'services',
-  'discussion',
-  'housing',
-  'for sale',
-  'jobs',
-  'gigs',
-  'resumes'];
+  'Communities',
+  'Services',
+  'Discussion',
+  'Housing',
+  'For Sale',
+  'Jobs',
+  'Gigs',
+  'Resumes'];
 
   return (
     <div className="w-56 bg-[#e8e4df] border-r border-gray-300 p-6 flex flex-col overflow-y-auto">
