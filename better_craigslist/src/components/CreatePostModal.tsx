@@ -139,7 +139,7 @@ export function CreatePostModal({
                   });
                   handleNext();
                 }}
-                className={`p-4 rounded-xl border-2 text-center capitalize transition-all duration-200 ${formData.category === cat ? 'border-purple-900 bg-purple-50 text-purple-900 font-medium' : 'border-gray-200 hover:border-purple-300 hover:bg-purple-50/50 text-gray-700'}`}>
+                className={`p-4 rounded-xl border-2 text-center capitalize transition-all duration-200 ${formData.category === cat ? 'border-purple-900 bg-purple-50 text-[#7b64b0] font-medium' : 'border-gray-200 hover:border-purple-300 hover:bg-purple-50/50 text-gray-700'}`}>
                 
                   {cat}
                 </button>
@@ -179,7 +179,7 @@ export function CreatePostModal({
                   });
                   handleNext();
                 }}
-                className={`p-3 rounded-xl border-2 text-center capitalize transition-all duration-200 ${formData.subcategory === sub ? 'border-purple-900 bg-purple-50 text-purple-900 font-medium' : 'border-gray-200 hover:border-purple-300 hover:bg-purple-50/50 text-gray-700'}`}>
+                className={`p-3 rounded-xl border-2 text-center capitalize transition-all duration-200 ${formData.subcategory === sub ? 'border-purple-900 bg-purple-50 text-[#7b64b0] font-medium' : 'border-gray-200 hover:border-purple-300 hover:bg-purple-50/50 text-gray-700'}`}>
                 
                   {sub}
                 </button>
@@ -410,7 +410,7 @@ export function CreatePostModal({
           <div className="p-6 border-b border-gray-200 flex items-center justify-between bg-white z-10">
             <div>
               <h3
-                className="text-2xl font-semibold text-purple-900"
+                className="text-2xl font-semibold text-[#7b64b0]"
                 style={{
                   fontFamily: "'Playfair Display', serif"
                 }}>

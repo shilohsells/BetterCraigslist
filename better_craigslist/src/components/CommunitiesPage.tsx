@@ -78,7 +78,7 @@ export function CommunitiesPage({
                 
                     <input
                   type="checkbox"
-                  className="w-4 h-4 text-purple-900 border-gray-300 rounded focus:ring-purple-900" />
+                  className="w-4 h-4 text-[#7b64b0] border-gray-300 rounded focus:ring-purple-900" />
                 
                     <span className="text-sm text-gray-700 capitalize">
                       {category}
@@ -103,9 +103,9 @@ export function CommunitiesPage({
         transition={{
           duration: 0.5
         }}
-        className="text-6xl italic text-purple-900 mb-10 tracking-wide font-bold"
+        className="text-6xl text-[#7b64b0] mb-10 tracking-wide font-bold"
         style={{
-          fontFamily: "'Playfair Display', serif"
+          fontFamily: "'Raleway', serif"
         }}>
         
         Communities

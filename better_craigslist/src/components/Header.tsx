@@ -25,7 +25,7 @@ export function Header({ onCreatePostClick, onFavoritesClick }: HeaderProps) {
       <div className="relative group">
         <button
           onClick={onCreatePostClick}
-          className="text-gray-600 hover:text-purple-900 transition-all duration-200 hover:scale-110 p-2 rounded-lg hover:bg-purple-50">
+          className="text-gray-600 hover:text-[#7b64b0] transition-all duration-200 hover:scale-110 p-2 rounded-lg hover:bg-purple-50">
           
           <Edit3Icon size={22} />
         </button>

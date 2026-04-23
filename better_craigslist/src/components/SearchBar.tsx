@@ -28,7 +28,7 @@ export function SearchBar({
       {showFilter &&
       <button
         onClick={onToggleFilter}
-        className="flex flex-col items-center gap-1 text-gray-600 hover:text-purple-900 transition-all duration-200 hover:scale-105 px-3">
+        className="flex flex-col items-center gap-1 text-gray-600 hover:text-[#7b64b0] transition-all duration-200 hover:scale-105 px-3">
         
           <FilterIcon size={22} />
           <span className="text-xs font-medium">filter</span>

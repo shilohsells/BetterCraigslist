@@ -71,7 +71,7 @@ export function CategoryPage({
           }
 
             <div>
-              <h3 className="text-lg font-semibold text-purple-900 group-hover:text-purple-700 transition-colors mb-1 pr-12">
+              <h3 className="text-lg font-semibold text-[#7B64B0] group-hover:text-purple-700 transition-colors mb-1 pr-12">
                 {item.title}
               </h3>
               <p className="text-sm text-gray-600 line-clamp-1 pr-12">
@@ -139,7 +139,7 @@ export function CategoryPage({
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               
                   {(item.price || item.metadata?.salary) &&
-              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-purple-900 shadow-sm">
+              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-[#7B64B0] shadow-sm">
                       {item.price || item.metadata?.salary}
                     </div>
               }
@@ -155,7 +155,7 @@ export function CategoryPage({
             }
 
               <div className="p-4 flex flex-col flex-1">
-                <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-purple-900 transition-colors pr-8">
+                <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-[#7B64B0] transition-colors pr-8">
                   {item.title}
                 </h3>
 
@@ -231,7 +231,7 @@ export function CategoryPage({
               <h4 className="text-sm font-semibold text-gray-900 mb-3">
                 Filter Options
               </h4>
-              <p className="text-sm text-gray-500 italic">
+              <p className="text-sm text-gray-500">
                 Filters for {category} coming soon...
               </p>
             </motion.div>
@@ -251,9 +251,9 @@ export function CategoryPage({
         transition={{
           duration: 0.5
         }}
-        className="text-6xl italic text-purple-900 mb-10 tracking-wide font-bold capitalize"
+        className="text-6xl text-[#7B64B0] mb-10 tracking-wide font-bold capitalize"
         style={{
-          fontFamily: "'Playfair Display', serif"
+          fontFamily: "'Raleway', serif"
         }}>
         
         {category.replace('-', ' ')}

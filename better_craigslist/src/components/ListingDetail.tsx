@@ -35,7 +35,7 @@ export function ListingDetail({
       
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-purple-900 hover:text-purple-700 transition-colors mb-6 w-fit font-medium">
+        className="flex items-center gap-2 text-[#7b64b0] hover:text-purple-700 transition-colors mb-6 w-fit font-medium">
         
         <ArrowLeftIcon size={20} />
         Back to {listing.category}
@@ -84,7 +84,7 @@ export function ListingDetail({
           </div>
 
           {(listing.price || listing.metadata?.salary) &&
-          <div className="text-2xl font-semibold text-purple-900 mb-6">
+          <div className="text-2xl font-semibold text-[#7b64b0] mb-6">
               {listing.price || listing.metadata?.salary}
             </div>
           }
@@ -104,7 +104,7 @@ export function ListingDetail({
               </div>
             }
             {listing.metadata?.jobType &&
-            <div className="inline-block bg-purple-100 text-purple-900 px-2 py-1 rounded text-xs font-medium w-fit mt-1">
+            <div className="inline-block bg-purple-100 text-[#7b64b0] px-2 py-1 rounded text-xs font-medium w-fit mt-1">
                 {listing.metadata.jobType}
               </div>
             }

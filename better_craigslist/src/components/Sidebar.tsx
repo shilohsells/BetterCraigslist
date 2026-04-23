@@ -22,7 +22,7 @@ export function Sidebar({
   'services',
   'discussion',
   'housing',
-  'for sell',
+  'for sale',
   'jobs',
   'gigs',
   'resumes'];
@@ -30,57 +30,77 @@ export function Sidebar({
   return (
     <div className="w-56 bg-[#e8e4df] border-r border-gray-300 p-6 flex flex-col overflow-y-auto">
       <div className="mb-8 pb-6 border-b border-gray-300">
-        <button
+        <button 
           onClick={() => {
             onNavigate('home');
             onSubcategoryClick(null);
           }}
           className="cursor-pointer focus:outline-none">
-          
-          <svg
-            width="56"
-            height="56"
-            viewBox="0 0 56 56"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="hover:scale-105 transition-transform duration-200">
-            
-            <circle
-              cx="28"
-              cy="28"
-              r="26"
-              stroke="#5b21b6"
-              strokeWidth="2.5"
-              fill="none" />
-            
-            <line
-              x1="28"
-              y1="10"
-              x2="28"
-              y2="28"
-              stroke="#5b21b6"
-              strokeWidth="2.5"
-              strokeLinecap="round" />
-            
-            <line
-              x1="28"
-              y1="28"
-              x2="16"
-              y2="42"
-              stroke="#5b21b6"
-              strokeWidth="2.5"
-              strokeLinecap="round" />
-            
-            <line
-              x1="28"
-              y1="28"
-              x2="40"
-              y2="42"
-              stroke="#5b21b6"
-              strokeWidth="2.5"
-              strokeLinecap="round" />
-            
-          </svg>
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="hover:scale-105 transition-transform duration-200"
+            >
+              {/* open C */}
+              <circle
+                cx="28"
+                cy="28"
+                r="18"
+                stroke="#7751b6"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray="90 20"
+                transform="rotate(38 28 28)"
+              />
+
+              {/* left branch */}
+              <line
+                x1="28"
+                y1="28"
+                x2="17"
+                y2="40"
+                stroke="#7751b6"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+
+              {/* bottom peace line */}
+              <line
+                x1="28"
+                y1="11"
+                x2="28"
+                y2="45"
+                stroke="#7751b6"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+
+              {/* peace line */}
+              <line
+                x1="28"
+                y1="11"
+                x2="28"
+                y2="28"
+                stroke="#7751b6"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+
+              {/* right branch */}
+              <line
+                x1="28"
+                y1="28"
+                x2="39"
+                y2="39"
+                stroke="#7751b6"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+            </svg>
         </button>
       </div>
 

@@ -52,7 +52,7 @@ export function FavoritesPage({
         transition={{
           duration: 0.5
         }}
-        className="text-6xl italic text-purple-900 mb-10 tracking-wide font-bold"
+        className="text-6xl italic text-[#7b64b0] mb-10 tracking-wide font-bold"
         style={{
           fontFamily: "'Playfair Display', serif"
         }}>
@@ -111,7 +111,7 @@ export function FavoritesPage({
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               
                     {(item.price || item.metadata?.salary) &&
-              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-purple-900 shadow-sm">
+              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-[#7b64b0] shadow-sm">
                         {item.price || item.metadata?.salary}
                       </div>
               }
@@ -136,7 +136,7 @@ export function FavoritesPage({
                   <div className="text-xs font-medium text-purple-600 mb-1 capitalize">
                     {item.category} • {item.subcategory}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-purple-900 transition-colors">
+                  <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-[#7b64b0] transition-colors">
                     {item.title}
                   </h3>
 

@@ -24,9 +24,9 @@ export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
           duration: 0.6,
           ease: 'easeOut'
         }}
-        className="text-7xl italic text-purple-900 mb-12 tracking-wider font-bold"
+        className="text-7xl text-[#7b64b0] mb-12 tracking-wider font-bold"
         style={{
-          fontFamily: "'Playfair Display', serif"
+          fontFamily: "'Raleway', serif"
         }}>
         
         Craigslist
@@ -125,7 +125,7 @@ export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
             
               <div className="p-6 border-b border-gray-200 flex items-center justify-between">
                 <h3
-                className="text-2xl font-semibold text-purple-900 capitalize"
+                className="text-2xl font-semibold text-[#7b64b0] capitalize"
                 style={{
                   fontFamily: "'Playfair Display', serif"
                 }}>
@@ -185,7 +185,7 @@ export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
                     <h4 className="font-semibold text-gray-900">Contact</h4>
                     <p>
                       For support, email{' '}
-                      <span className="text-purple-900 font-medium">
+                      <span className="text-[#7b64b0] font-medium">
                         support@craigslist-redesign.org
                       </span>
                     </p>
@@ -257,7 +257,7 @@ export function Homepage({ searchQuery, onSearchChange }: HomepageProps) {
                       and Leaflet. Designed in Figma.
                     </p>
                     <div className="mt-6 p-4 bg-purple-50 rounded-lg">
-                      <p className="text-sm text-purple-900 italic">
+                      <p className="text-sm text-[#7b64b0] italic">
                         "The best interface is one that gets out of the way and
                         lets people connect."
                       </p>

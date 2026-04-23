@@ -45,7 +45,7 @@ export function CommunityGrid({
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
           
           </div>
-          <div className="mt-3 text-sm italic text-purple-900 font-medium group-hover:text-purple-950 transition-colors">
+          <div className="mt-3 text-sm italic text-[#7b64b0] font-medium group-hover:text-purple-950 transition-colors">
             {item.title}
           </div>
         </motion.div>

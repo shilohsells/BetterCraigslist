@@ -106,7 +106,7 @@ export function LocationWidget() {
             onClick={() => setShowMapModal(true)}
             className="w-20 h-20 rounded-full bg-purple-200 hover:bg-purple-300 flex items-center justify-center transition-all duration-200 hover:scale-105 shadow-md">
             
-            <MapPinIcon size={32} className="text-purple-900" />
+            <MapPinIcon size={32} className="text-[#7b64b0]" />
           </button>
 
           <div className="text-xs text-gray-600">{radius} miles</div>
@@ -170,7 +170,7 @@ export function LocationWidget() {
             
               <div className="p-6 border-b border-gray-200 flex items-center justify-between">
                 <h3
-                className="text-2xl font-semibold text-purple-900"
+                className="text-2xl font-semibold text-[#7b64b0]"
                 style={{
                   fontFamily: "'Playfair Display', serif"
                 }}>

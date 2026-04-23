@@ -23,7 +23,7 @@ export const categorySubcategories: Record<string, string[]> = {
   services: ['home', 'education', 'automotive', 'tech', 'personal'],
   discussion: ['politics', 'lifestyle', 'entertainment', 'local'],
   housing: ['apartments', 'rooms', 'houses', 'sublets'],
-  'for sell': ['furniture', 'electronics', 'vehicles', 'other'],
+  'for sale': ['furniture', 'electronics', 'vehicles', 'other'],
   jobs: ['tech', 'food', 'healthcare', 'creative', 'labor'],
   gigs: ['events', 'labor', 'creative', 'domestic'],
   resumes: ['tech', 'trades', 'creative', 'professional']
@@ -39,10 +39,10 @@ export const listings: Listing[] = [
 // COMMUNITIES
 {
   id: 101,
-  title: 'Vintage Collectibles',
+  title: 'Vintage LPS Collectibles',
   description:
-  'Looking to trade and discuss vintage toys and collectibles. We meet every other Sunday.',
-  image: 'https://picsum.photos/seed/101/400/400',
+  'Looking to trade and discuss vintage littlest pet shop toys and collectibles. We meet every other Sunday.',
+  image: 'https://i.redd.it/jics0jfeduy51.jpg',
   location: 'Downtown',
   date: generateDate(1),
   category: 'communities',
@@ -53,8 +53,8 @@ export const listings: Listing[] = [
   title: 'Pet Meetup',
   description:
   'Weekly dog walking group at the local park. All friendly dogs welcome!',
-  image: 'https://picsum.photos/seed/102/400/400',
-  location: 'Centennial Park',
+  image: 'https://i.pinimg.com/736x/f1/a2/f9/f1a2f997cbb56510f53e35e9b80322dd.jpg',
+  location: 'South Lakes Park',
   date: generateDate(2),
   category: 'communities',
   subcategory: 'pets'
@@ -64,7 +64,7 @@ export const listings: Listing[] = [
   title: 'Art Workshop',
   description:
   'Open studio time for local artists. Bring your own supplies. Easels provided.',
-  image: 'https://picsum.photos/seed/103/400/400',
+  image: 'https://i.pinimg.com/736x/76/df/56/76df56ade07baafc7ed4266fbe88f4f1.jpg',
   location: 'Arts District',
   date: generateDate(2),
   category: 'communities',
@@ -75,7 +75,7 @@ export const listings: Listing[] = [
   title: 'Book Club',
   description:
   'Currently reading sci-fi classics. We meet at the local coffee shop on Thursdays.',
-  image: 'https://picsum.photos/seed/104/400/400',
+  image: 'https://i.pinimg.com/1200x/25/dd/92/25dd926ed097182cfc62d71b1bf5cd11.jpg',
   location: 'Westside',
   date: generateDate(3),
   category: 'communities',
@@ -86,7 +86,7 @@ export const listings: Listing[] = [
   title: 'Garden Share',
   description:
   'Trade seeds, plant clippings, and gardening tips. Great for beginners!',
-  image: 'https://picsum.photos/seed/105/400/400',
+  image: 'https://i.pinimg.com/736x/35/b6/46/35b646335402e3fbb77aa806e03a0d99.jpg',
   location: 'Community Center',
   date: generateDate(4),
   category: 'communities',
@@ -97,7 +97,7 @@ export const listings: Listing[] = [
   title: 'Music Jam',
   description:
   'Acoustic jam session. All skill levels welcome. Mostly folk and bluegrass.',
-  image: 'https://picsum.photos/seed/106/400/400',
+  image: 'https://i.pinimg.com/1200x/eb/5f/92/eb5f92f7e700064f9a3481dcba37c00e.jpg',
   location: 'Northside',
   date: generateDate(5),
   category: 'communities',
@@ -108,7 +108,7 @@ export const listings: Listing[] = [
   title: 'Yoga Group',
   description:
   'Free outdoor yoga sessions on Saturday mornings. Bring your own mat.',
-  image: 'https://picsum.photos/seed/107/400/400',
+  image: 'https://i.pinimg.com/736x/5b/11/6c/5b116c1cc743451a3aba4f3cfe6f34d6.jpg',
   location: 'Riverfront',
   date: generateDate(5),
   category: 'communities',
@@ -119,7 +119,7 @@ export const listings: Listing[] = [
   title: 'Cooking Class',
   description:
   'Learn to make authentic pasta from scratch. Ingredients included in small fee.',
-  image: 'https://picsum.photos/seed/108/400/400',
+  image: 'https://i.pinimg.com/736x/dd/77/0f/dd770ff7a1119e40ec2781d2a148e5bc.jpg',
   location: 'Eastside Kitchen',
   date: generateDate(6),
   category: 'communities',
@@ -130,7 +130,7 @@ export const listings: Listing[] = [
   title: 'Babysitter Co-op',
   description:
   "Parents taking turns watching each other's kids. Join our trusted network!",
-  image: 'https://picsum.photos/seed/109/400/400',
+  image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlqwq12clgsR_dA39Q3WSh-q2TIpAektb_mQ&s',
   location: 'Suburbs',
   date: generateDate(3),
   category: 'communities',
@@ -141,7 +141,7 @@ export const listings: Listing[] = [
   title: 'Cat Lovers Club',
   description:
   'Share photos, tips, and stories about your feline friends. Monthly meetups too.',
-  image: 'https://picsum.photos/seed/110/400/400',
+  image: 'https://i.pinimg.com/736x/40/9c/f5/409cf5b69a74200ab5a1e63b29c82c9f.jpg',
   location: 'Midtown',
   date: generateDate(4),
   category: 'communities',
@@ -154,7 +154,7 @@ export const listings: Listing[] = [
   title: 'Plumbing Repair',
   description:
   'Licensed plumber with 15 years of experience. Available for emergency calls 24/7.',
-  image: 'https://picsum.photos/seed/201/400/400',
+  image: 'https://i.pinimg.com/736x/c4/36/65/c436656b64c3748515657197edd25d7c.jpg',
   price: '$80/hr',
   location: 'All Areas',
   date: generateDate(0),
@@ -166,7 +166,7 @@ export const listings: Listing[] = [
   title: 'Math Tutoring',
   description:
   'High school and college level math tutoring. Algebra, Calculus, Statistics.',
-  image: 'https://picsum.photos/seed/202/400/400',
+  image: 'https://i.pinimg.com/736x/9b/7e/38/9b7e3862105f0c7e21e27a6e7e57eb23.jpg',
   price: '$40/hr',
   location: 'University Area',
   date: generateDate(1),
@@ -178,7 +178,7 @@ export const listings: Listing[] = [
   title: 'House Cleaning',
   description:
   'Deep cleaning, move-in/move-out, and regular maintenance. Eco-friendly products used.',
-  image: 'https://picsum.photos/seed/203/400/400',
+  image: 'https://i.pinimg.com/736x/84/15/4a/84154a83ad87b71af5d8b19830606b55.jpg',
   price: '$120/flat',
   location: 'Metro Area',
   date: generateDate(1),
@@ -190,7 +190,7 @@ export const listings: Listing[] = [
   title: 'Landscaping',
   description:
   'Lawn mowing, tree trimming, and garden design. Free estimates.',
-  image: 'https://picsum.photos/seed/204/400/400',
+  image: 'https://i.pinimg.com/1200x/38/be/ab/38beabe1bb219b97d8803bc64280b3e3.jpg',
   price: 'Varies',
   location: 'Suburbs',
   date: generateDate(2),
@@ -202,7 +202,7 @@ export const listings: Listing[] = [
   title: 'Tax Preparation',
   description:
   'Certified CPA available for personal and small business tax prep.',
-  image: 'https://picsum.photos/seed/205/400/400',
+  image: 'https://i.pinimg.com/736x/0c/1a/ee/0c1aee86c4108ad9fe0ef0589b271f7e.jpg',
   price: '$150+',
   location: 'Downtown Office',
   date: generateDate(3),
@@ -214,7 +214,7 @@ export const listings: Listing[] = [
   title: 'Dog Walking',
   description:
   'Reliable dog walker. 30 or 60 minute walks available. Pet CPR certified.',
-  image: 'https://picsum.photos/seed/206/400/400',
+  image: 'https://i.pinimg.com/1200x/8f/eb/7e/8feb7e2f408abc61c0a12e016fded765.jpg',
   price: '$20/walk',
   location: 'Midtown',
   date: generateDate(3),
@@ -226,7 +226,7 @@ export const listings: Listing[] = [
   title: 'Web Design',
   description:
   'Custom websites for small businesses. React, WordPress, Shopify.',
-  image: 'https://picsum.photos/seed/207/400/400',
+  image: 'https://i.pinimg.com/736x/f8/0b/09/f80b098eaa0d4fb2195b0dcd994bc4ef.jpg',
   price: '$500+',
   location: 'Remote',
   date: generateDate(4),
@@ -238,7 +238,7 @@ export const listings: Listing[] = [
   title: 'Moving Help',
   description:
   'Two strong movers with a box truck. We handle your items with care.',
-  image: 'https://picsum.photos/seed/208/400/400',
+  image: 'https://i.pinimg.com/736x/80/88/d0/8088d0a4ae88d291c5b9795387a86e6a.jpg',
   price: '$90/hr',
   location: 'Citywide',
   date: generateDate(5),
@@ -262,7 +262,7 @@ export const listings: Listing[] = [
   title: 'Piano Lessons',
   description:
   'Experienced piano teacher for all ages. Classical and contemporary styles.',
-  image: 'https://picsum.photos/seed/210/400/400',
+  image: 'https://i.pinimg.com/736x/19/ee/cf/19eecf836b6bba7915a66c85c9baf909.jpg',
   price: '$50/hr',
   location: 'Westside',
   date: generateDate(4),
@@ -377,7 +377,7 @@ export const listings: Listing[] = [
   title: '2BR Apartment Downtown',
   description:
   'Spacious 2 bedroom apartment in the heart of downtown. In-unit washer/dryer, gym in building.',
-  image: 'https://picsum.photos/seed/401/400/400',
+  image: 'https://i.pinimg.com/1200x/98/da/8f/98da8fc091557000a27cfbd33d346d56.jpg',
   price: '$1,800/mo',
   location: 'Downtown',
   date: generateDate(0),
@@ -390,7 +390,7 @@ export const listings: Listing[] = [
   title: 'Cozy Studio Near Campus',
   description:
   'Perfect for students. 5 minute walk to the main library. Utilities included.',
-  image: 'https://picsum.photos/seed/402/400/400',
+  image: 'https://i.pinimg.com/736x/08/c8/3b/08c83b2981104a4d6ace2b1b8a6c76d4.jpg',
   price: '$950/mo',
   location: 'University Area',
   date: generateDate(1),
@@ -403,7 +403,7 @@ export const listings: Listing[] = [
   title: 'Room in Shared House',
   description:
   'Looking for a clean, quiet roommate to share a 3BR house. Big backyard, dogs okay.',
-  image: 'https://picsum.photos/seed/403/400/400',
+  image: 'https://i.pinimg.com/736x/f1/30/ce/f130ceeee754548f4588f90613daace2.jpg',
   price: '$600/mo',
   location: 'Eastside',
   date: generateDate(2),
@@ -416,7 +416,7 @@ export const listings: Listing[] = [
   title: '3BR Family Home',
   description:
   'Beautiful updated home in a great school district. 2 car garage, fenced yard.',
-  image: 'https://picsum.photos/seed/404/400/400',
+  image: 'https://i.pinimg.com/1200x/aa/30/a4/aa30a4c0fa4157c065c7de6f99ca52d8.jpg',
   price: '$2,400/mo',
   location: 'Suburbs',
   date: generateDate(2),
@@ -429,7 +429,7 @@ export const listings: Listing[] = [
   title: 'Loft Space Available',
   description:
   'Industrial style loft with exposed brick and high ceilings. Great natural light.',
-  image: 'https://picsum.photos/seed/405/400/400',
+  image: 'https://i.pinimg.com/736x/5a/dd/da/5addda6443d5b98add5dc44772a22295.jpg',
   price: '$1,600/mo',
   location: 'Arts District',
   date: generateDate(3),
@@ -442,7 +442,7 @@ export const listings: Listing[] = [
   title: 'Furnished Room',
   description:
   'Fully furnished room for rent month-to-month. Perfect for traveling nurses or professionals.',
-  image: 'https://picsum.photos/seed/406/400/400',
+  image: 'https://i.pinimg.com/736x/e0/a9/a6/e0a9a648bb0dc0456b8ad2ceb121a835.jpg',
   price: '$800/mo',
   location: 'Midtown',
   date: generateDate(4),
@@ -455,7 +455,7 @@ export const listings: Listing[] = [
   title: 'Sublet Available',
   description:
   'Subletting my 1BR for the summer (June-August). Discounted rent!',
-  image: 'https://picsum.photos/seed/407/400/400',
+  image: 'https://i.pinimg.com/1200x/85/40/81/85408112f2cf280c7fe92cc06fd71739.jpg',
   price: '$1,100/mo',
   location: 'Westside',
   date: generateDate(5),
@@ -467,7 +467,7 @@ export const listings: Listing[] = [
   id: 408,
   title: 'Townhouse for Rent',
   description: 'Modern 2-story townhouse. 2.5 baths, community pool access.',
-  image: 'https://picsum.photos/seed/408/400/400',
+  image: 'https://i.pinimg.com/736x/1b/78/fa/1b78fadec746282e0c3e4dd4ffeac35e.jpg',
   price: '$2,100/mo',
   location: 'Northside',
   date: generateDate(6),
@@ -476,17 +476,17 @@ export const listings: Listing[] = [
   metadata: { bedrooms: 2 }
 },
 
-// FOR SELL
+// FOR SALE
 {
   id: 501,
   title: 'Vintage Leather Couch',
   description:
   'Mid-century modern leather sofa. Great condition, minor wear. Must pick up.',
-  image: 'https://picsum.photos/seed/501/400/400',
+  image: 'https://i.pinimg.com/736x/5c/1c/7a/5c1c7a7e03e6656c6aa60efacf6822bb.jpg',
   price: '$450',
   location: 'Midtown',
   date: generateDate(0),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'furniture'
 },
 {
@@ -494,11 +494,11 @@ export const listings: Listing[] = [
   title: 'Mountain Bike',
   description:
   'Trek Marlin 7, frame size L. Ridden less than 50 miles. Like new.',
-  image: 'https://picsum.photos/seed/502/400/400',
+  image: 'https://i.ebayimg.com/images/g/b4YAAeSwKptn6xHA/s-l1200.jpg',
   price: '$600',
   location: 'Westside',
   date: generateDate(1),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'other'
 },
 {
@@ -506,11 +506,11 @@ export const listings: Listing[] = [
   title: 'iPhone 14 Pro',
   description:
   'Unlocked, 256GB, Space Black. Battery health 95%. Comes with case and charger.',
-  image: 'https://picsum.photos/seed/503/400/400',
+  image: 'https://i.pinimg.com/736x/dd/12/6a/dd126a5e1ccc061c346354d188a89daf.jpg',
   price: '$750',
   location: 'Downtown',
   date: generateDate(1),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'electronics'
 },
 {
@@ -518,11 +518,11 @@ export const listings: Listing[] = [
   title: 'Dining Table Set',
   description:
   'Solid oak dining table with 6 matching chairs. Has a leaf extension.',
-  image: 'https://picsum.photos/seed/504/400/400',
+  image: 'https://i.pinimg.com/736x/94/44/f5/9444f529000136ee8c7fab6b771aecd9.jpg',
   price: '$300',
   location: 'Suburbs',
   date: generateDate(2),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'furniture'
 },
 {
@@ -530,11 +530,11 @@ export const listings: Listing[] = [
   title: 'Electric Guitar',
   description:
   'Fender Stratocaster, Mexican made. Includes gig bag and small practice amp.',
-  image: 'https://picsum.photos/seed/505/400/400',
+  image: 'https://i.pinimg.com/1200x/81/71/33/817133a66ae57bcfbcf7d5fd39bdc5d3.jpg',
   price: '$400',
   location: 'Eastside',
   date: generateDate(3),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'other'
 },
 {
@@ -542,11 +542,11 @@ export const listings: Listing[] = [
   title: 'Bookshelf Collection',
   description:
   'Two matching IKEA Billy bookcases. Black-brown color. Fully assembled.',
-  image: 'https://picsum.photos/seed/506/400/400',
+  image: 'https://www.ikea.com/us/en/images/products/billy-bookcase-combination-dark-brown-oak-effect__1266282_pe928092_s5.jpg?f=s',
   price: '$80',
   location: 'University Area',
   date: generateDate(4),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'furniture'
 },
 {
@@ -558,7 +558,7 @@ export const listings: Listing[] = [
   price: '$900',
   location: 'Northside',
   date: generateDate(5),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'electronics'
 },
 {
@@ -566,11 +566,11 @@ export const listings: Listing[] = [
   title: 'Vintage Record Player',
   description:
   'Restored Pioneer PL-12D turntable. Sounds fantastic. New belt installed.',
-  image: 'https://picsum.photos/seed/508/400/400',
+  image: 'https://879a0cd993b93bf42216-fac92dd43971ff47cecfeefad717658e.ssl.cf2.rackcdn.com/5bbaa0b6-8164-4ca1-8841-c71281f56122.jpg',
   price: '$250',
   location: 'Arts District',
   date: generateDate(6),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'electronics'
 },
 {
@@ -578,11 +578,11 @@ export const listings: Listing[] = [
   title: 'Honda Civic 2018',
   description:
   'Well maintained, 45k miles, clean title. New tires and brakes.',
-  image: 'https://picsum.photos/seed/509/400/400',
+  image: 'https://preview.redd.it/good-deal-for-a-2018-ex-hatchback-v0-bls11tnkd5he1.jpg?width=640&crop=smart&auto=webp&s=06dcb49e97821c42748639bbb6233f22631f2b63',
   price: '$16,500',
   location: 'Eastside',
   date: generateDate(1),
-  category: 'for sell',
+  category: 'for sale',
   subcategory: 'vehicles'
 },
 
@@ -592,7 +592,7 @@ export const listings: Listing[] = [
   title: 'Software Developer',
   description:
   'Looking for a full-stack developer with React and Node.js experience. Remote flexibility.',
-  image: 'https://picsum.photos/seed/601/400/400',
+  image: 'https://i.pinimg.com/736x/bb/47/16/bb4716949f167109ae14e6463cf90e0e.jpg',
   location: 'Downtown / Hybrid',
   date: generateDate(0),
   category: 'jobs',
@@ -608,7 +608,7 @@ export const listings: Listing[] = [
   title: 'Restaurant Manager',
   description:
   'Experienced manager needed for high-volume downtown restaurant. Great benefits.',
-  image: 'https://picsum.photos/seed/602/400/400',
+  image: 'https://i.pinimg.com/736x/7f/be/30/7fbe307323eb6706ac56a60262758627.jpg',
   location: 'Downtown',
   date: generateDate(1),
   category: 'jobs',
@@ -624,7 +624,7 @@ export const listings: Listing[] = [
   title: 'Delivery Driver',
   description:
   'Local delivery route. Must have clean driving record and be able to lift 50lbs.',
-  image: 'https://picsum.photos/seed/603/400/400',
+  image: 'https://i.pinimg.com/736x/d8/60/54/d86054ef8321cc79f9d4d90b53d8d0de.jpg',
   location: 'Metro Area',
   date: generateDate(1),
   category: 'jobs',
@@ -640,7 +640,7 @@ export const listings: Listing[] = [
   title: 'Marketing Coordinator',
   description:
   'Manage social media accounts, create email campaigns, and assist with event planning.',
-  image: 'https://picsum.photos/seed/604/400/400',
+  image: 'https://i.pinimg.com/736x/f9/10/d1/f910d16a6d88c94924d2a302298c1da9.jpg',
   location: 'Midtown',
   date: generateDate(2),
   category: 'jobs',
@@ -656,7 +656,7 @@ export const listings: Listing[] = [
   title: 'Nurse Practitioner',
   description:
   'Join our growing family practice clinic. Excellent work-life balance.',
-  image: 'https://picsum.photos/seed/605/400/400',
+  image: 'https://i.pinimg.com/736x/c6/14/12/c6141292a8634672a5c7acad8c7b5709.jpg',
   location: 'Westside Clinic',
   date: generateDate(3),
   category: 'jobs',
@@ -672,7 +672,7 @@ export const listings: Listing[] = [
   title: 'Graphic Designer',
   description:
   'Create print and digital assets for various clients. Portfolio required.',
-  image: 'https://picsum.photos/seed/606/400/400',
+  image: 'https://i.pinimg.com/736x/c6/7b/f5/c67bf5b8a530da2bef87e4cc818cd7b2.jpg',
   location: 'Remote',
   date: generateDate(4),
   category: 'jobs',
@@ -688,7 +688,7 @@ export const listings: Listing[] = [
   title: 'Warehouse Associate',
   description:
   'Picking, packing, and shipping orders. Fast-paced environment.',
-  image: 'https://picsum.photos/seed/607/400/400',
+  image: 'https://i.pinimg.com/1200x/17/1d/71/171d71cb6a810f5b77eeb06e4978cce0.jpg',
   location: 'Industrial Park',
   date: generateDate(5),
   category: 'jobs',
@@ -703,7 +703,7 @@ export const listings: Listing[] = [
   id: 608,
   title: 'Customer Service Rep',
   description: 'Handle inbound calls and emails. Paid training provided.',
-  image: 'https://picsum.photos/seed/608/400/400',
+  image: 'https://i.pinimg.com/736x/1a/ae/92/1aae9297c0f937d03cf32b34fe0cf1fb.jpghttps://picsum.photos/seed/608//400',
   location: 'Call Center',
   date: generateDate(6),
   category: 'jobs',
@@ -721,7 +721,7 @@ export const listings: Listing[] = [
   title: 'Event Photography',
   description:
   'Need a photographer for a 4-hour corporate event this Saturday. Must have own equipment.',
-  image: 'https://picsum.photos/seed/701/400/400',
+  image: 'https://i.pinimg.com/736x/82/dd/9b/82dd9b008c20603744c399c96f908683.jpg',
   price: '$300 flat',
   location: 'Downtown Hotel',
   date: generateDate(0),
@@ -733,7 +733,7 @@ export const listings: Listing[] = [
   title: 'Moving Help Needed',
   description:
   'Need 2 people to help load a U-Haul truck for 3 hours on Sunday morning.',
-  image: 'https://picsum.photos/seed/702/400/400',
+  image: 'https://i.pinimg.com/1200x/6a/1d/98/6a1d98e9e3238176d84f01038cdfcbe8.jpg',
   price: '$25/hr',
   location: 'Eastside',
   date: generateDate(1),
@@ -745,7 +745,7 @@ export const listings: Listing[] = [
   title: 'Yard Work Weekend',
   description:
   'Raking leaves, pulling weeds, and laying mulch. Probably a full day of work.',
-  image: 'https://picsum.photos/seed/703/400/400',
+  image: 'https://i.pinimg.com/1200x/fd/f9/30/fdf930a7be78ae096bc5157574be3a43.jpg',
   price: '$150 flat',
   location: 'Suburbs',
   date: generateDate(2),
@@ -769,7 +769,7 @@ export const listings: Listing[] = [
   title: 'Dog Sitting',
   description:
   'Need someone to watch my golden retriever at their house for the weekend.',
-  image: 'https://picsum.photos/seed/705/400/400',
+  image: 'https://i.pinimg.com/1200x/f9/46/d1/f946d1cf0e4713914772e726a09f3184.jpg',
   price: '$100 total',
   location: 'Drop off',
   date: generateDate(3),
@@ -780,7 +780,7 @@ export const listings: Listing[] = [
   id: 706,
   title: 'Flyer Distribution',
   description: 'Hand out flyers for a new restaurant opening. 4 hour shift.',
-  image: 'https://picsum.photos/seed/706/400/400',
+  image: 'https://i.pinimg.com/736x/17/ed/77/17ed77740626d16949c4cc29c2e9e133.jpg',
   price: '$15/hr',
   location: 'University Area',
   date: generateDate(4),
@@ -818,7 +818,7 @@ export const listings: Listing[] = [
   title: 'Experienced Web Developer',
   description:
   '5 years experience building scalable web applications. Proficient in React, Node, Python. Looking for full-time remote work.',
-  image: 'https://picsum.photos/seed/801/400/400',
+  image: 'https://i.pinimg.com/1200x/93/bb/f4/93bbf4f713b8f03493ad480eb5abed48.jpg',
   location: 'Remote',
   date: generateDate(0),
   category: 'resumes',
