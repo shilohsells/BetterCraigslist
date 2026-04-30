@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   XIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
-  CheckCircleIcon } from
+  CheckCircleIcon,
+  UploadCloudIcon,
+  ImageIcon } from
 'lucide-react';
 import { categorySubcategories } from '../data/listings';
 interface CreatePostModalProps {
@@ -20,6 +22,19 @@ export function CreatePostModal({
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [imageFileName, setImageFileName] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const loadImageFile = (file: File) => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setFormData((prev) => ({ ...prev, image: e.target?.result as string }));
+      setImageFileName(file.name);
+    };
+    reader.readAsDataURL(file);
+  };
   const [formData, setFormData] = useState({
     category: '',
     subcategory: '',
@@ -44,6 +59,7 @@ export function CreatePostModal({
         location: '',
         image: ''
       });
+      setImageFileName('');
     }
   }, [isOpen]);
   if (!isOpen) return null;
@@ -284,20 +300,50 @@ export function CreatePostModal({
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Image URL (Optional)
+                Image (Optional)
               </label>
               <input
-                type="text"
-                value={formData.image}
-                onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  image: e.target.value
-                })
-                }
-                placeholder="https://example.com/image.jpg"
-                className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
-              
+                ref={fileInputRef}
+                type="file"
+                accept="image/jpeg,image/jpg, image/png"
+                className="hidden"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) loadImageFile(file);
+                }} />
+              {formData.image ? (
+                <div className="flex items-center gap-3 border-2 border-purple-200 bg-purple-50 rounded-lg px-4 py-3">
+                  <ImageIcon size={20} className="text-purple-700 flex-shrink-0" />
+                  <span className="text-sm text-purple-900 truncate flex-1">{imageFileName}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFormData({ ...formData, image: '' });
+                      setImageFileName('');
+                      if (fileInputRef.current) fileInputRef.current.value = '';
+                    }}
+                    className="text-gray-400 hover:text-gray-600 flex-shrink-0">
+                    <XIcon size={16} />
+                  </button>
+                </div>
+              ) : (
+                <div
+                  onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
+                  onDragLeave={() => setIsDragOver(false)}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    setIsDragOver(false);
+                    const file = e.dataTransfer.files?.[0];
+                    if (file) loadImageFile(file);
+                  }}
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-lg py-8 cursor-pointer transition-all ${isDragOver ? 'border-purple-600 bg-purple-50' : 'border-gray-300 hover:border-purple-400 hover:bg-purple-50/50'}`}>
+                  <UploadCloudIcon size={28} className={isDragOver ? 'text-purple-600' : 'text-gray-400'} />
+                  <p className="text-sm text-gray-500">
+                    Drag & drop an Image, or <span className="text-purple-700 font-medium">browse</span>
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>);
 
