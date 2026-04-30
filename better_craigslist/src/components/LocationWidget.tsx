@@ -12,10 +12,25 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
 });
-function LocationMarker({ position, setPosition }: any) {
+function LocationMarker({ position, setPosition, setCityName }: any) {
   useMapEvents({
     click(e) {
-      setPosition([e.latlng.lat, e.latlng.lng]);
+      const { lat, lng } = e.latlng;
+      setPosition([lat, lng]);
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.address) {
+            const name =
+              data.address.city ||
+              data.address.town ||
+              data.address.village ||
+              data.address.county ||
+              data.display_name.split(',')[0];
+            setCityName(name);
+          }
+        })
+        .catch(console.error);
     }
   });
   return position ? <Marker position={position} /> : null;
@@ -201,7 +216,8 @@ export function LocationWidget() {
                   
                     <LocationMarker
                     position={position}
-                    setPosition={setPosition} />
+                    setPosition={setPosition}
+                    setCityName={setCityName} />
                   
                   </MapContainer>
                 </div>
