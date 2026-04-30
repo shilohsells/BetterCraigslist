@@ -196,11 +196,18 @@ const handleHomepageSearchSubmit = () => {
                         className="cursor-pointer"
                       >
                         {item.image && (
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full aspect-square object-cover rounded-2xl"
-                          />
+                          <div className="relative">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-full aspect-square object-cover rounded-2xl"
+                            />
+                            {item.price && (
+                              <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-[#7B64B0] shadow-sm">
+                                {item.price}
+                              </div>
+                            )}
+                          </div>
                         )}
 
                         <h3 className="mt-3 text-lg italic text-[#7b64b0]">

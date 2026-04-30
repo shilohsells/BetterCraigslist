@@ -24,6 +24,7 @@ export function CreatePostModal({
   const [isSuccess, setIsSuccess] = useState(false);
   const [isDragOver, setIsDragOver] = useState(false);
   const [imageFileName, setImageFileName] = useState('');
+  const [priceUnit, setPriceUnit] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const loadImageFile = (file: File) => {
@@ -60,6 +61,7 @@ export function CreatePostModal({
         image: ''
       });
       setImageFileName('');
+      setPriceUnit('');
     }
   }, [isOpen]);
   if (!isOpen) return null;
@@ -88,7 +90,7 @@ export function CreatePostModal({
       setIsSuccess(true);
       // Wait a moment to show success state before closing
       setTimeout(() => {
-        onSubmit(formData);
+        onSubmit({ ...formData, price: formData.price ? formData.price + priceUnit : '' });
       }, 1500);
     }, 800);
   };
@@ -248,18 +250,30 @@ export function CreatePostModal({
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Price (Optional)
                 </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-medium select-none">$</span>
-                  <input
-                    type="text"
-                    inputMode="decimal"
-                    value={formData.price ? formData.price.slice(1) : ''}
-                    onChange={(e) => {
-                      const filtered = e.target.value.replace(/[^0-9.]/g, '');
-                      setFormData({ ...formData, price: filtered ? `$${filtered}` : '' });
-                    }}
-                    placeholder="0.00"
-                    className="w-full border-2 border-gray-300 pl-7 pr-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                <div className="flex gap-2">
+                  <div className="relative flex-1">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-medium select-none">$</span>
+                    <input
+                      type="text"
+                      inputMode="decimal"
+                      value={formData.price ? formData.price.slice(1) : ''}
+                      onChange={(e) => {
+                        const filtered = e.target.value.replace(/[^0-9.]/g, '');
+                        setFormData({ ...formData, price: filtered ? `$${filtered}` : '' });
+                      }}
+                      placeholder="0.00"
+                      className="w-full border-2 border-gray-300 pl-7 pr-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                  </div>
+                  {(formData.category === 'Services' || formData.category === 'Housing') && (
+                    <select
+                      value={priceUnit}
+                      onChange={(e) => setPriceUnit(e.target.value)}
+                      className="border-2 border-gray-300 px-2 py-2.5 rounded-lg focus:border-purple-900 outline-none transition-all text-sm text-gray-700 bg-white">
+                      <option value="">—</option>
+                      {formData.category === 'Services' && <option value="/hr">/hr</option>}
+                      {formData.category === 'Housing' && <option value="/month">/month</option>}
+                    </select>
+                  )}
                 </div>
               </div>
               <div>
