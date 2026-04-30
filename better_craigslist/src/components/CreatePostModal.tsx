@@ -6,7 +6,8 @@ import {
   ArrowRightIcon,
   CheckCircleIcon,
   UploadCloudIcon,
-  ImageIcon } from
+  ImageIcon,
+  FileTextIcon } from
 'lucide-react';
 import { categorySubcategories } from '../data/listings';
 interface CreatePostModalProps {
@@ -26,6 +27,8 @@ export function CreatePostModal({
   const [imageFileName, setImageFileName] = useState('');
   const [priceUnit, setPriceUnit] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const resumeFileRef = useRef<HTMLInputElement>(null);
+  const [resumeFileName, setResumeFileName] = useState('');
 
   const loadImageFile = (file: File) => {
     if (!file.type.startsWith('image/')) return;
@@ -62,6 +65,7 @@ export function CreatePostModal({
       });
       setImageFileName('');
       setPriceUnit('');
+      setResumeFileName('');
     }
   }, [isOpen]);
   if (!isOpen) return null;
@@ -74,11 +78,15 @@ export function CreatePostModal({
   const isStepValid = () => {
     if (step === 1) return !!formData.category;
     if (step === 2) return !!formData.subcategory;
-    if (step === 3)
-    return (
-      !!formData.title.trim() &&
-      !!formData.description.trim() &&
-      !!formData.location.trim());
+    if (step === 3) {
+      if (formData.category === 'Resumes')
+        return !!formData.title.trim() && !!resumeFileName;
+      return (
+        !!formData.title.trim() &&
+        !!formData.description.trim() &&
+        (formData.category === 'Discussion' || formData.category === 'Communities' || !!formData.location.trim())
+      );
+    }
 
     return true;
   };
@@ -227,77 +235,160 @@ export function CreatePostModal({
               Listing Details
             </h4>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Title *
-              </label>
-              <input
-                type="text"
-                value={formData.title}
-                onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  title: e.target.value
-                })
-                }
-                placeholder="e.g., Vintage Leather Couch"
-                className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
-              
-            </div>
+            {formData.category === 'Resumes' ? (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+                  <input
+                    type="text"
+                    value={formData.title}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    placeholder="e.g., Jane Smith"
+                    className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Price (Optional)
-                </label>
-                <div className="flex gap-2">
-                  <div className="relative flex-1">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-medium select-none">$</span>
-                    <input
-                      type="text"
-                      inputMode="decimal"
-                      value={formData.price ? formData.price.slice(1) : ''}
-                      onChange={(e) => {
-                        const filtered = e.target.value.replace(/[^0-9.]/g, '');
-                        setFormData({ ...formData, price: filtered ? `$${filtered}` : '' });
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Resume (PDF or DOCX) *</label>
+                  <input
+                    ref={resumeFileRef}
+                    type="file"
+                    accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) setResumeFileName(file.name);
+                    }} />
+                  {resumeFileName ? (
+                    <div className="flex items-center gap-3 border-2 border-purple-200 bg-purple-50 rounded-lg px-4 py-3">
+                      <FileTextIcon size={20} className="text-purple-700 flex-shrink-0" />
+                      <span className="text-sm text-purple-900 truncate flex-1">{resumeFileName}</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setResumeFileName('');
+                          if (resumeFileRef.current) resumeFileRef.current.value = '';
+                        }}
+                        className="text-gray-400 hover:text-gray-600 flex-shrink-0">
+                        <XIcon size={16} />
+                      </button>
+                    </div>
+                  ) : (
+                    <div
+                      onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
+                      onDragLeave={() => setIsDragOver(false)}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        setIsDragOver(false);
+                        const file = e.dataTransfer.files?.[0];
+                        if (file) setResumeFileName(file.name);
                       }}
-                      placeholder="0.00"
-                      className="w-full border-2 border-gray-300 pl-7 pr-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
-                  </div>
-                  {(formData.category === 'Services' || formData.category === 'Housing') && (
-                    <select
-                      value={priceUnit}
-                      onChange={(e) => setPriceUnit(e.target.value)}
-                      className="border-2 border-gray-300 px-2 py-2.5 rounded-lg focus:border-purple-900 outline-none transition-all text-sm text-gray-700 bg-white">
-                      <option value="">—</option>
-                      {formData.category === 'Services' && <option value="/hr">/hr</option>}
-                      {formData.category === 'Housing' && <option value="/month">/month</option>}
-                    </select>
+                      onClick={() => resumeFileRef.current?.click()}
+                      className={`flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-lg py-8 cursor-pointer transition-all ${isDragOver ? 'border-purple-600 bg-purple-50' : 'border-gray-300 hover:border-purple-400 hover:bg-purple-50/50'}`}>
+                      <UploadCloudIcon size={28} className={isDragOver ? 'text-purple-600' : 'text-gray-400'} />
+                      <p className="text-sm text-gray-500">
+                        Drag & drop a PDF or DOCX, or <span className="text-purple-700 font-medium">browse</span>
+                      </p>
+                    </div>
                   )}
                 </div>
-              </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Description (Optional)</label>
+                  <textarea
+                    value={formData.description}
+                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                    placeholder="Brief summary of your experience..."
+                    rows={4}
+                    className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all resize-none" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Location (Optional)</label>
+                  <input
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    placeholder="e.g., Midtown"
+                    className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+                  <input
+                    type="text"
+                    value={formData.title}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    placeholder="e.g., Vintage Leather Couch"
+                    className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                </div>
+
+                {(formData.category === 'Discussion' || formData.category === 'Communities') ? (
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Location *
+                  Location (Optional)
                 </label>
                 <input
                   type="text"
                   value={formData.location}
-                  onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    location: e.target.value
-                  })
-                  }
+                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                   placeholder="e.g., Midtown"
                   className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
-                
               </div>
-            </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    {(formData.category === 'Jobs' || formData.category === 'Gigs') ? 'Compensation (Optional)' : 'Price (Optional)'}
+                  </label>
+                  <div className="flex gap-2">
+                    <div className="relative flex-1">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-medium select-none">$</span>
+                      <input
+                        type="text"
+                        inputMode="decimal"
+                        value={formData.price ? formData.price.slice(1) : ''}
+                        onChange={(e) => {
+                          const filtered = e.target.value.replace(/[^0-9.]/g, '');
+                          setFormData({ ...formData, price: filtered ? `$${filtered}` : '' });
+                        }}
+                        placeholder="0.00"
+                        className="w-full border-2 border-gray-300 pl-7 pr-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                    </div>
+                    {(formData.category === 'Services' || formData.category === 'Housing' || formData.category === 'Jobs' || formData.category === 'Gigs') && (
+                      <select
+                        value={priceUnit}
+                        onChange={(e) => setPriceUnit(e.target.value)}
+                        className="border-2 border-gray-300 px-2 py-2.5 rounded-lg focus:border-purple-900 outline-none transition-all text-sm text-gray-700 bg-white">
+                        <option value="">—</option>
+                        {formData.category === 'Services' && <option value="/hr">/hr</option>}
+                        {formData.category === 'Housing' && <option value="/month">/month</option>}
+                        {formData.category === 'Jobs' && <option value=" Salary">Salary</option>}
+                        {formData.category === 'Jobs' && <option value="/hr">/hr</option>}
+                        {formData.category === 'Gigs' && <option value="/hr">/hr</option>}
+                        {formData.category === 'Gigs' && <option value="/day">/day</option>}
+                      </select>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Location *
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    placeholder="e.g., Midtown"
+                    className="w-full border-2 border-gray-300 px-4 py-2.5 rounded-lg focus:border-purple-900 focus:ring-2 focus:ring-purple-200 outline-none transition-all" />
+                </div>
+              </div>
+            )}
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Description *
+                {formData.category === 'Discussion' ? 'Body Text *' : formData.category === 'Jobs' ? 'Description and Requirements *' : 'Description *'}
               </label>
               <textarea
                 value={formData.description}
@@ -360,6 +451,8 @@ export function CreatePostModal({
                 </div>
               )}
             </div>
+              </>
+            )}
           </motion.div>);
 
       case 4:
